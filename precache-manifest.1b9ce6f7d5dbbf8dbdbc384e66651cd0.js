@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a8d8c02950f524f3256c35cf6ae4bbc9",
+    "revision": "e58b76b8ab63928e6868904a70ed177a",
     "url": "/learn-farsi/index.html"
   },
   {
-    "revision": "071d3b10bae71bda5e52",
-    "url": "/learn-farsi/static/css/main.0a833b62.chunk.css"
+    "revision": "18f82529b2670a3247e8",
+    "url": "/learn-farsi/static/css/main.02e66e17.chunk.css"
   },
   {
     "revision": "a2c4d828bca1c68e377e",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/learn-farsi/static/js/2.9f47a04e.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "071d3b10bae71bda5e52",
-    "url": "/learn-farsi/static/js/main.54ffb7dc.chunk.js"
+    "revision": "18f82529b2670a3247e8",
+    "url": "/learn-farsi/static/js/main.f620266d.chunk.js"
   },
   {
     "revision": "c6f85e31067df39f9704",
