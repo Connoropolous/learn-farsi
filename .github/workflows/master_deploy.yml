@@ -22,4 +22,4 @@ jobs:
       - name: Setup Git Name
         run: git config --global user.name "Connor Turland"
       - name: Deploy to GH Pages
-        run: npm run deploy
+        run: NODE_DEBUG=gh-pages npm run deploy
