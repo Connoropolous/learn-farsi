@@ -22,4 +22,8 @@ jobs:
       - name: Setup Git Name
         run: git config --global user.name "Connor Turland"
       - name: Deploy to GH Pages
-        run: NODE_DEBUG=gh-pages npm run deploy
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          git remote set-url origin https://Connoropolous:$GH_TOKEN@github.com/Connoropolous/learn-farsi.git
+          NODE_DEBUG=gh-pages npm run deploy
