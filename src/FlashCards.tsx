@@ -54,7 +54,7 @@ export default function FlashCards() {
   // fetch the word data
   useEffect(() => {
     async function getData() {
-      const response = await fetch('/data/nouns.csv')
+      const response = await fetch(`${process.env.PUBLIC_URL}/data/nouns.csv`)
       if (!response || !response.body) {
         return
       }
@@ -105,7 +105,7 @@ export default function FlashCards() {
       <div className='artifacts'>
         <img
           alt={noun.English}
-          src={`/images/${noun.Picture}`}
+          src={`${process.env.PUBLIC_URL}/images/${noun.Picture}`}
           className='word-picture'
         />
         <br />
