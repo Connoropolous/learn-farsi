@@ -1,0 +1,24 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  padding: 10px 30px;
+}
+
+.header h2 {
+  font-size: 26px;
+}
+
+.header ul {
+  list-style: none;
+}
+
+.header ul li {
+  display: inline-block;
+  margin-left: 15px;
+}
+
+.header a {
+  text-decoration: none;
+}
