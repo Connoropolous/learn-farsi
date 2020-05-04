@@ -28,10 +28,10 @@ export default function FlashCards() {
     setCurrentWordIndex(randomIndex)
   }
 
-  const nextWord = () => {
-    setTimeLeft(DEFAULT_TIME_PER_WORD)
-    setCurrentWordIndex(currentWordIndex + 1)
-  }
+  // const nextWord = () => {
+  //   setTimeLeft(DEFAULT_TIME_PER_WORD)
+  //   setCurrentWordIndex(currentWordIndex + 1)
+  // }
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -103,7 +103,11 @@ export default function FlashCards() {
         {/* <button onClick={nextWord}>Next Word</button> */}
       </div>
       <div className='artifacts'>
-        <img src={`/images/${noun.Picture}`} className='word-picture' />
+        <img
+          alt={`picture of ${noun.English}`}
+          src={`/images/${noun.Picture}`}
+          className='word-picture'
+        />
         <br />
         {noun.Farsi && <p>{noun.Farsi}</p>}
         {revealFanglish && <p>{noun.Fanglish}</p>}
