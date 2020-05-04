@@ -104,7 +104,7 @@ export default function FlashCards() {
       </div>
       <div className='artifacts'>
         <img
-          alt={`picture of ${noun.English}`}
+          alt={noun.English}
           src={`/images/${noun.Picture}`}
           className='word-picture'
         />
