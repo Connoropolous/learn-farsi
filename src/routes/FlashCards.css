@@ -1,11 +1,11 @@
-.artifacts {
+.flash-card {
   font-size: 40px;
   color: #555;
   min-height: 300px;
   text-align: center;
 }
 
-.artifacts img {
+.flash-card img {
   margin-top: 40px;
   height: 450px;
 }
@@ -19,4 +19,10 @@
   margin: 0 20px;
   cursor: pointer;
   font-size: 20px;
+}
+
+.time-left {
+  text-align: center;
+  font-size: 40px;
+  color: #555;
 }
