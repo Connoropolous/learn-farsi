@@ -19,20 +19,30 @@ export default function Grammar() {
         Tenses
         <I>Simple Present</I>
         <I>Present Continuous</I>
+        <I>...</I>
       </S>
       <S>
         Structures of Language
-        <I>Noun: Person/Place/Thing/Idea</I>
         <I>
+          Noun: Person/Place/Thing/Idea
           <I>
             Proper Noun: any direct reference to a named thing, which in English
             is written with capital letter (e.g. Manhattan)
           </I>
-        </I>
-        <I>
           <I>
             Common Noun: any general reference to a person/place/thing/idea.
             (e.g. city)
+          </I>
+          <I>
+            Pronoun: a pronoun has been theorized to be a word that substitutes
+            for a noun or noun phrase.&nbsp;
+            <a
+              href='https://en.wikipedia.org/wiki/Pronoun'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              wikipedia
+            </a>
           </I>
         </I>
         <I>Verb: Action</I>
@@ -51,7 +61,8 @@ export default function Grammar() {
           </I>
         </I>
         <I>Adjective: Description (e.g. blue)</I>
-        <I>Adverb</I>
+        <I>Adverb: ...</I>
+        <I>...</I>
       </S>
       <S>
         Infinitive: a verb, generally not having an expressed subject, and in

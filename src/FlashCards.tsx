@@ -54,7 +54,9 @@ export default function FlashCards() {
   // fetch the word data
   useEffect(() => {
     async function getData() {
-      const response = await fetch(`${process.env.PUBLIC_URL}/data/nouns.csv`)
+      const response = await fetch(
+        'https://raw.githubusercontent.com/Connoropolous/farsi-data/master/nouns.csv'
+      )
       if (!response || !response.body) {
         return
       }
@@ -103,11 +105,7 @@ export default function FlashCards() {
         {/* <button onClick={nextWord}>Next Word</button> */}
       </div>
       <div className='artifacts'>
-        <img
-          alt={noun.English}
-          src={`${process.env.PUBLIC_URL}/images/${noun.Picture}`}
-          className='word-picture'
-        />
+        <img alt={noun.English} src={noun.Picture} className='word-picture' />
         <br />
         {noun.Farsi && <p>{noun.Farsi}</p>}
         {revealFanglish && <p>{noun.Fanglish}</p>}
