@@ -53,15 +53,22 @@ export default function Grammar() {
           </I>
           <I>
             Transitive Verb: A verb which relates with an object (e.g. to cook
-            food)
+            food) --- I am thinking of this as things that only happen through
+            conscious or unconscious acts of will or intention
           </I>
           <I>
             Intransitive Verb: A verb which doesn't relate with an object (e.g.
-            to sleep)
+            to sleep) --- I am thinking of this as 'transition between states',
+            not necessarily having required any act of will or intention. An
+            exception is in something like "she is running". Running describes
+            the state, which in that case is requiring intention, but is still
+            intransitive, given there's no object, only subject.
           </I>
         </I>
         <I>Adjective: Description (e.g. blue)</I>
         <I>Adverb: ...</I>
+        <I>Propositions: ...</I>
+        <I>Articles: ...</I>
         <I>...</I>
       </S>
       <S>
