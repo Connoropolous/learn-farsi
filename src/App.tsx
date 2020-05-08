@@ -8,7 +8,7 @@ import FlashCards from './routes/FlashCards'
 import Header from './components/Header'
 import Grammar from './routes/Grammar'
 import fetchAndParseCsv from './fetchParseCsv'
-import { Word } from './types'
+import { Noun, Verb } from './types'
 
 function Home() {
   return <div className='home green'>Learn Farsi :) فارسی</div>
@@ -17,15 +17,21 @@ function Home() {
 const NOUN_DATA_URL =
   'https://raw.githubusercontent.com/Connoropolous/farsi-data/master/nouns.csv'
 
+const VERB_DATA_URL =
+  'https://raw.githubusercontent.com/Connoropolous/farsi-data/master/verbs.csv'
+
 function App() {
-  const defaultNouns: Word[] = []
+  const defaultNouns: Noun[] = []
   const [nouns, setNouns] = useState(defaultNouns)
+  const defaultVerbs: Verb[] = []
+  const [verbs, setVerbs] = useState(defaultVerbs)
 
   // on the first component mount,
   // fetch the word data
   useEffect(() => {
     async function getData() {
-      setNouns(await fetchAndParseCsv<Word>(NOUN_DATA_URL))
+      setNouns(await fetchAndParseCsv<Noun>(NOUN_DATA_URL))
+      setVerbs(await fetchAndParseCsv<Verb>(VERB_DATA_URL))
     }
     getData()
   }, [])
@@ -37,7 +43,7 @@ function App() {
         <Switch>
           <Route path='/vocabulary' component={Vocabulary} />
           <Route path='/flash-cards'>
-            <FlashCards nouns={nouns} />
+            <FlashCards nouns={nouns} verbs={verbs} />
           </Route>
           <Route path='/grammar' component={Grammar} />
           <Route path='/' component={Home} />
