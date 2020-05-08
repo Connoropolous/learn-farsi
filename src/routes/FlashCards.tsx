@@ -59,7 +59,7 @@ export default function FlashCards({
 
   const [nounsOrVerbs, setNounsOrVerbs] = useState('nouns')
 
-  const [currentNounIndex, setCurrentNounIndex] = useState(0)
+  const [currentWordIndex, setCurrentWordIndex] = useState(0)
   const [revealEnglish, setRevealEnglish] = useState(false)
   const [revealFanglish, setRevealFanglish] = useState(false)
   const [paused, setPaused] = useState(false)
@@ -68,12 +68,12 @@ export default function FlashCards({
   const DEFAULT_TIME_PER_WORD = 20
   const [timeLeft, setTimeLeft] = useState(DEFAULT_TIME_PER_WORD)
 
-  const pickRandomWord = () => {
-    const arrayLength = nounsOrVerbs === 'nouns' ? nouns.length : verbs.length
-    const randomIndex = Math.floor(Math.random() * arrayLength)
+  const pickRandomWord = (length: number) => {
+    const withinArrayMaxIndex = length - 1
+    const randomIndex = Math.floor(Math.random() * withinArrayMaxIndex)
     // setRevealEnglish(false)
     setTimeLeft(DEFAULT_TIME_PER_WORD)
-    setCurrentNounIndex(randomIndex)
+    setCurrentWordIndex(randomIndex)
   }
 
   // const nextNoun  = () => {
@@ -91,7 +91,7 @@ export default function FlashCards({
       // reset if we hit 0 on the timer
       if (timeLeft === 0) {
         setTimeLeft(DEFAULT_TIME_PER_WORD)
-        setCurrentNounIndex(currentNounIndex + 1)
+        setCurrentWordIndex(currentWordIndex + 1)
       } else {
         // decrease time left by 1 second otherwise
         setTimeLeft(timeLeft - 1)
@@ -101,7 +101,7 @@ export default function FlashCards({
     return function teardown() {
       clearInterval(interval)
     }
-  }, [timeLeft, paused, currentNounIndex])
+  }, [timeLeft, paused, currentWordIndex])
 
   // loading state
   if (nouns.length === 0) {
@@ -111,23 +111,30 @@ export default function FlashCards({
   // TODO: to improve, we prbly shouldn't hit this case where
   // selected noun  doesn't exist in noun  list... just defensive coding
   const wordArray = nounsOrVerbs === 'nouns' ? nouns : verbs
-  const word = wordArray[currentNounIndex]
-  if (!word) {
-    return <div>completed all words</div>
-  }
+  const word = wordArray[currentWordIndex]
 
   // main component
   return (
     <div>
       <div className='controls'>
         <button
-          onClick={() =>
+          onClick={() => {
             setNounsOrVerbs(nounsOrVerbs === 'nouns' ? 'verbs' : 'nouns')
-          }
+            pickRandomWord(
+              nounsOrVerbs === 'nouns' ? verbs.length : nouns.length
+            )
+          }}
         >
           Switch to {nounsOrVerbs === 'nouns' ? 'verbs' : 'nouns'}
         </button>
-        <button className='pick-random' onClick={pickRandomWord}>
+        <button
+          className='pick-random'
+          onClick={() =>
+            pickRandomWord(
+              nounsOrVerbs === 'nouns' ? nouns.length : verbs.length
+            )
+          }
+        >
           Pick Random Word
         </button>
         <button
@@ -137,7 +144,7 @@ export default function FlashCards({
           {revealFanglish ? 'Hide' : 'Reveal'} Fanglish
         </button>
         <button
-          className='reveal-noun '
+          className='reveal-noun'
           onClick={() => setRevealEnglish(!revealEnglish)}
         >
           {revealEnglish ? 'Hide' : 'Reveal'} English
@@ -147,16 +154,19 @@ export default function FlashCards({
         </button>
         {/* <button onClick={nextNoun }>Next Noun </button> */}
       </div>
-      <FlashCard
-        word={word}
-        {...{
-          revealEnglish,
-          revealFarsi,
-          revealPicture,
-          revealPronunciation,
-          revealFanglish,
-        }}
-      />
+      {word && (
+        <FlashCard
+          word={word}
+          {...{
+            revealEnglish,
+            revealFarsi,
+            revealPicture,
+            revealPronunciation,
+            revealFanglish,
+          }}
+        />
+      )}
+      {!word && <p>word not found</p>}
       <p className='time-left'>{timeLeft} seconds left</p>
     </div>
   )
