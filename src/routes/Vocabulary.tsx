@@ -6,6 +6,7 @@ export default function Vocabulary() {
       <a
         href='https://github.com/Connoropolous/farsi-data/blob/master/verbs.csv'
         target='_blank'
+        rel='noopener noreferrer'
       >
         verbs
       </a>
@@ -13,6 +14,7 @@ export default function Vocabulary() {
       <a
         href='https://github.com/Connoropolous/farsi-data/blob/master/nouns.csv'
         target='_blank'
+        rel='noopener noreferrer'
       >
         nouns
       </a>
