@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import './FlashCards.css'
-import { Noun, Verb } from '../types'
+import { Noun, Verb, WordType, randomFromEnum } from '../types'
+import {
+  conjugateSimplePresent,
+  Inflections,
+  simplePresentPronouns,
+} from '../rules'
 
 interface FlashCardProps {
   revealPicture: boolean
@@ -19,6 +24,20 @@ function FlashCard({
   revealFarsi,
   word,
 }: FlashCardProps) {
+  let [inflection, setInflection] = useState(randomFromEnum(Inflections))
+
+  // if the word changes, randomly pick a different inflection
+  useEffect(() => {
+    setInflection(randomFromEnum(Inflections))
+  }, [word])
+
+  let fanglish: string
+  if (word.type === WordType.VERB) {
+    fanglish = conjugateSimplePresent(word.SimplePresentRoot, inflection)
+  } else {
+    fanglish = word.Fanglish
+  }
+
   return (
     <div className='flash-card'>
       {revealPicture && word.Picture && (
@@ -32,7 +51,16 @@ function FlashCard({
         </>
       )}
       {revealFarsi && word.Farsi && <p>{word.Farsi}</p>}
-      {revealFanglish && word.Fanglish && <p>{word.Fanglish}</p>}
+      {word.type === WordType.NOUN && revealFanglish && fanglish && (
+        <p>{fanglish}</p>
+      )}
+      {word.type === WordType.VERB && fanglish && (
+        <p>
+          {simplePresentPronouns[inflection]}{' '}
+          {/* if hiding, show underscores in the place of letters, and extra space between words */}
+          {revealFanglish ? fanglish : fanglish.replace(/\w/g, '_')}
+        </p>
+      )}
       {revealEnglish && word.English && <p>{word.English}</p>}
       <br />
       {revealPronunciation && word.Pronunciation && (

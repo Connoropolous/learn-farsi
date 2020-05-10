@@ -8,7 +8,7 @@ import FlashCards from './routes/FlashCards'
 import Header from './components/Header'
 import Grammar from './routes/Grammar'
 import fetchAndParseCsv from './fetchParseCsv'
-import { Noun, Verb } from './types'
+import { Noun, Verb, WordType } from './types'
 
 function Home() {
   return <div className='home green'>Learn Farsi :) فارسی</div>
@@ -30,8 +30,16 @@ function App() {
   // fetch the word data
   useEffect(() => {
     async function getData() {
-      setNouns(await fetchAndParseCsv<Noun>(NOUN_DATA_URL))
-      setVerbs(await fetchAndParseCsv<Verb>(VERB_DATA_URL))
+      const nouns = await fetchAndParseCsv<Noun>(NOUN_DATA_URL)
+      nouns.forEach((noun) => {
+        noun.type = WordType.NOUN
+      })
+      const verbs = await fetchAndParseCsv<Verb>(VERB_DATA_URL)
+      verbs.forEach((verb) => {
+        verb.type = WordType.VERB
+      })
+      setNouns(nouns)
+      setVerbs(verbs)
     }
     getData()
   }, [])
