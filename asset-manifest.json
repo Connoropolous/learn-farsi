@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/learn-farsi/static/css/main.31d2f206.chunk.css",
-    "main.js": "/learn-farsi/static/js/main.19d300a6.chunk.js",
-    "main.js.map": "/learn-farsi/static/js/main.19d300a6.chunk.js.map",
+    "main.js": "/learn-farsi/static/js/main.c77f63f5.chunk.js",
+    "main.js.map": "/learn-farsi/static/js/main.c77f63f5.chunk.js.map",
     "runtime-main.js": "/learn-farsi/static/js/runtime-main.4bf12f04.js",
     "runtime-main.js.map": "/learn-farsi/static/js/runtime-main.4bf12f04.js.map",
-    "static/js/2.618c298b.chunk.js": "/learn-farsi/static/js/2.618c298b.chunk.js",
-    "static/js/2.618c298b.chunk.js.map": "/learn-farsi/static/js/2.618c298b.chunk.js.map",
+    "static/js/2.fe7534c7.chunk.js": "/learn-farsi/static/js/2.fe7534c7.chunk.js",
+    "static/js/2.fe7534c7.chunk.js.map": "/learn-farsi/static/js/2.fe7534c7.chunk.js.map",
     "index.html": "/learn-farsi/index.html",
-    "precache-manifest.1d946079eae0d2d346afae8327a4709f.js": "/learn-farsi/precache-manifest.1d946079eae0d2d346afae8327a4709f.js",
+    "precache-manifest.eaeef11176d8e48e81de5cca21bcae44.js": "/learn-farsi/precache-manifest.eaeef11176d8e48e81de5cca21bcae44.js",
     "service-worker.js": "/learn-farsi/service-worker.js",
     "static/css/main.31d2f206.chunk.css.map": "/learn-farsi/static/css/main.31d2f206.chunk.css.map",
-    "static/js/2.618c298b.chunk.js.LICENSE.txt": "/learn-farsi/static/js/2.618c298b.chunk.js.LICENSE.txt"
+    "static/js/2.fe7534c7.chunk.js.LICENSE.txt": "/learn-farsi/static/js/2.fe7534c7.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.4bf12f04.js",
-    "static/js/2.618c298b.chunk.js",
+    "static/js/2.fe7534c7.chunk.js",
     "static/css/main.31d2f206.chunk.css",
-    "static/js/main.19d300a6.chunk.js"
+    "static/js/main.c77f63f5.chunk.js"
   ]
 }
